@@ -22,6 +22,7 @@ public class ScheduledTasks {
 
     @Scheduled(cron = "0 51 12 * * 1")
     public void reportStatus(){
+        logger.info("In ScheduledTasks");
         List<Catering> list = repo.findAll();
         Map<Status, List<Catering>> map=list.stream().collect(Collectors.groupingBy(Catering::getStatus));
         logger.info("Statuses Currently"+map);
