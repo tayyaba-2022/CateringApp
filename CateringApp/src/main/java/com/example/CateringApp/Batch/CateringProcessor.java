@@ -12,6 +12,7 @@ public class CateringProcessor implements ItemProcessor<Catering, Catering> {
 
     @Override
     public Catering process(final Catering catering) throws Exception {
+        LOGGER.info("Start of the process in Catering Processor:", catering);
         int id = catering.getId();
         String customerName = catering.getCustomerName().toUpperCase();
         String phoneNumber = catering.getPhoneNumber();
@@ -19,7 +20,6 @@ public class CateringProcessor implements ItemProcessor<Catering, Catering> {
         String menu=catering.getMenu();
         int noOfGuests=catering.getNoOfGuests();
         Status status= catering.getStatus();
-
         Catering cat = new Catering(id, customerName, phoneNumber,email,menu,noOfGuests,status);
         LOGGER.info("Converting ( {} ) into ( {} )", catering, cat);
 
