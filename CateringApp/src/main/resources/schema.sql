@@ -1,0 +1,13 @@
+DROP TABLE IF EXISTS catering;
+DROP TYPE IF EXISTS STATUS;
+CREATE TYPE STATUS as enum('NOT_STARTED','COMPLETED','CANCELLED','PROCESSING');
+CREATE TABLE catering(
+id int AUTO_INCREMENT primary key,
+customer_name VARCHAR(250) NOT NULL,
+phone_number VARCHAR(250),
+email VARCHAR(250),
+menu JSON,
+no_of_guests INT,
+status STATUS
+);
+
